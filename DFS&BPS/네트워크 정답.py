@@ -27,10 +27,6 @@
 
 # 감사합니다.
 
-# """
-# union-find
-# 마지막에 그래프 개수 셀 때 i를 바로 찾는게 아니라 parent[i]를 기준으로 카운트해야함
-# """
 def solution(n, computers):
     def find_parent(parent, x) :
         if parent[x] != x :
@@ -44,13 +40,25 @@ def solution(n, computers):
             parent[b] = a
         else :
             parent[a] = b
+        # 코드를 잘 보면 자기자신의 부모를 갱신하는 것일수도 있지만 자기 부모의 부모를 갱신하는 것일수도 있음
+        # 따라서 현재 노드의 부모는 갱신되지 않을 수 있다.
+        # 이게 마지막에 for문으로 갱신해줘야 하는 이유
             
     parents = [i for i in range(n)]
     for i in range(len(computers)) :
         for j in range(len(computers[i])) :
             if computers[i][j] == 1 :
-                if find_parent(parents, i) != find_parent(parents, j) :
+                    # union 설명 참고
                     union_parent(parents, i, j)
-
-    real_parents = [find_parent(parents, parent) for parent in parents]
-    return len(set(real_parents))
+    
+    # 마지막으로 한번 더 돌면서 부모노드를 한번 더 갱신해줘야 실제 정확한 부모 노드 테이블 완성
+    # 이유는 union 설명 참고
+    for i in range(len(parents)) :
+        find_parent(parents, i)
+    return len(set(parents))
+    # 여기서 실수한게 뭐냐면 parent로 갱신하면 현재노드의 부모노드의 부모를 찾는 것이 되기 때문에
+    # 현재노드가 갱신이 안되고 부모노드의 부모를 갱신하는 것이 됨
+    # 따라서 위의 방식으로 현재 인덱스 노드의 부모를 새로 갱신해줘야 정답
+    # 아래는 잘못된 예시
+    # real_parents = [find_parent(parents, parent) for parent in parents]
+    # return len(set(real_parents))
