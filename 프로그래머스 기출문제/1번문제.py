@@ -11,14 +11,16 @@
 
 # const solution1Data = [1, 4, 3, 2, 5];
 
-# 정렬 후 순차적으로 되어 있다면 마지막 값과 length가 동일
-def solution1(numArr) :
+
+# 0이 아니라 1부터 다 들어가있다면 가장 큰 max값은 array의 길이와 같다
+# 1부터 들어갔기 때문
+def solution1(numArr):
     answer = False
-    if len(numArr) == max(numArr) :
+    if len(numArr) == max(numArr):
         answer = True
 
     return answer
 
-value = [1,4,3,2,5]
-print(solution1(value))
 
+value = [1, 4, 3, 2, 5]
+print(solution1(value))

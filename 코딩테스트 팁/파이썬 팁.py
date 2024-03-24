@@ -89,6 +89,13 @@
 # reverse 내림차순 옵션도 사용가능
 
 
+# 전역변수를 사용하는 방법
+# 위에서 선언한 전역변수명을 지역 scope에서 global로 지정해줘야함
+# a = 0
+# def func():
+#     global a
+#     a += 1
+
 # 중첩함수(nested function) 내에서 비지역변수(=전역변수)를 사용하는 방법
 # 프로그래머스에서 유용하게 쓰일 듯 왜냐면 solution함수 안에서 작성해야 하기 때문
 # def solution():
@@ -117,14 +124,6 @@
 #     d += 1
 #     return a, b, c, d #패킹
 # e, r, t, t = func() # 언패킹
-
-
-# 전역변수를 사용하는 방법
-# 위에서 선언한 전역변수명을 지역 scope에서 global로 지정해줘야함
-# a = 0
-# def func():
-#     global a
-#     a += 1
 
 
 # 주의사항 continue는 아래꺼는 수행 안하고 다음 for문으로 넘어가는 거임

@@ -1,6 +1,8 @@
 # 과일을 5개들이, 3개 들이 상자에 담는데 상자 갯수를 최소로 해서 담는 방법, 단 모든 상자가 꽉 차야 하고 못 나누어 담으면 0을 반환
 
 # 비슷한 문제 백준 14916번 - 거스름돈
+# https://www.acmicpc.net/problem/14916
+# 해설
 # https://devjeong.com/algorithm/algorithm-4/
 # 춘향이는 편의점 카운터에서 일한다.
 
@@ -14,20 +16,23 @@
 # 출력
 # 거스름돈 동전의 최소 개수를 출력한다. 만약 거슬러 줄 수 없으면 -1을 출력한다.
 
-def solution3(fruits) :
+
+def solution3(fruits):
     answer = 0
 
-    while fruits > 0 :
-        if fruits % 5 == 0 :
+    while fruits > 0:
+        # 5로 나눠질때까지 -3을 빼주면서 카운팅하고 5로 나눠지는 순간 나눌 수 있는 몫을 카운트에 더하고 멈추면 정답
+        if fruits % 5 == 0:
             answer += fruits // 5
             break
-        else :
+        else:
             fruits -= 3
             answer += 1
 
-    if fruits < 0 :
+    if fruits < 0:
         return 0
-    else :
+    else:
         return answer
+
 
 print(solution3(7))

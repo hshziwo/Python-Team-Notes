@@ -3,8 +3,8 @@
 # https://lovelyalien.tistory.com/116
 # https://jskim4.tistory.com/8
 # [3번문제]
-# 자연수 N개가 중복없이 들어있는 배열이 있을때  서로 다른 두 원소의 위치를 
-# 바꾸는 Swap 연산을 이용해 원소들의 위치를 바꿔 서로 인접한 원소의 차가 K 이하가 
+# 자연수 N개가 중복없이 들어있는 배열이 있을때  서로 다른 두 원소의 위치를
+# 바꾸는 Swap 연산을 이용해 원소들의 위치를 바꿔 서로 인접한 원소의 차가 K 이하가
 # 되도록 하는데 Swap 연산을 가장 적게 사용하였을때의 연산 횟수를 출력하는 문제였습니다.
 # [3번 풀이]
 # 자연수 배열의 최대길이가 8로 매우 작아 모든 순서쌍을 구한후 인접 크기의 차이가
@@ -61,42 +61,43 @@
 # /* const data = 10;
 # const data2 = [10,30,40,20]; */
 
-def solution7(k, numbers) :
-    global swap_count, answer, numbers_length
+
+def solution7(k, numbers):
     swap_count = 0
-    answer = 9999999999
+    answer = 1e9
     numbers_length = len(numbers)
 
-    def permutate(depth) :
-        global swap_count, answer, numbers_length
-        if depth == numbers_length :
+    def permutate(depth):
+        nonlocal swap_count, answer, numbers_length
+        if depth == numbers_length:
             flag = True
             # 간격이 k보다 크면 False
-            for i in range(1, numbers_length) :
-                if abs(numbers[i - 1] - numbers[i]) > k :
+            for i in range(1, numbers_length):
+                if abs(numbers[i - 1] - numbers[i]) > k:
                     flag = False
                     break
 
-            if flag == True :
+            if flag == True:
                 print(numbers)
                 answer = min(answer, swap_count)
 
-        for i in range(depth, numbers_length) :
+        for i in range(depth, numbers_length):
             # 자신 이외부터 스왑시작
-            if i != depth :
+            if i != depth:
                 numbers[i], numbers[depth] = numbers[depth], numbers[i]
                 swap_count += 1
 
             permutate(depth + 1)
 
             # 자신 이외부터 스왑 되돌림
-            if i != depth :
+            if i != depth:
                 numbers[i], numbers[depth] = numbers[depth], numbers[i]
                 swap_count -= 1
 
     permutate(0)
     print(answer)
 
-solution7(20, [10,40,30,20])
+
+solution7(20, [10, 40, 30, 20])
 # solution7(3, [3,7,2,8,6,4,5,1])
 # solution7(10, [10,30,40,20])
