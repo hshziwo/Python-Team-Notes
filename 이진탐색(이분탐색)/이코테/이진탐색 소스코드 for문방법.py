@@ -2,6 +2,7 @@ import sys
 
 input = lambda: sys.stdin.readline().rstrip()
 
+# n은 길이, target은 찾고자하는 값
 n, target = list(map(int, input().split()))
 array = list(map(int, input().split()))
 
@@ -25,6 +26,7 @@ def binary_search(array, target, start, end):
 
 
 # 이진탐색 실행
+# start = 0, end = n - 1(마지막인덱스)
 result = binary_search(array, target, 0, n - 1)
 if result == None:
     print("원소가 존재하지 않습니다.")

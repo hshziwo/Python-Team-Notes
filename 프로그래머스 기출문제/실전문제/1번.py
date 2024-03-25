@@ -3,6 +3,8 @@
 # 해설
 # https://a-littlecoding.tistory.com/85
 
+# 1번 : 중복제거 문제, enumerate를 쓰고 싶어서 마지막 인덱스 일때는 IndexError가 나서 try except로 처리해서 마지막꺼를 넣어줬다.
+
 
 def solution(arr):
     answer = []

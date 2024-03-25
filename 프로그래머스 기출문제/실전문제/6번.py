@@ -5,6 +5,9 @@
 # 해설
 # https://trey-de.tistory.com/8
 
+# 6번: 팩토리얼값의 뒤 0의 개수를 구하는 건데 python의 기본 내장함수 math.factorial(n)을 해서 효율성이 0점 나왔다.
+# 5의 개수를 누적합으로 구하는 풀이가 있다고 한다.
+
 import math
 
 

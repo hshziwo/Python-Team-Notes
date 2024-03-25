@@ -5,6 +5,8 @@
 # 해설
 # https://devjeong.com/algorithm/algorithm-4/
 
+# 5번: 그리디 문제, 5로 나눠질때까지 값에서 -3을 빼주면서 카운팅하고 5로 나눠지는 순간 나눌 수 있는 몫을 카운트에 더하고 멈추면 정답
+
 
 def solution(n):
     answer = 0
