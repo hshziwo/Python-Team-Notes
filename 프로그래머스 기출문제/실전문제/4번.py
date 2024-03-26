@@ -6,27 +6,46 @@
 # 4번: 01이나 10이 붙어있으면 계속제거하는 문제인데 slicing하는 게 갑자기 헷갈려서 못풀었음
 
 
-def solution(string):
-    count = 0
-
-    def func(s):
-        nonlocal count, string
-        value = False
-        for i in range(len(s) - 1):
-            if (s[i] == "0" and s[i + 1] == "1") or (s[i] == "1" and s[i + 1] == "0"):
-                string = s[:i] + s[i + 2 :]
-                count += 1
-                value = True
-                break
-
-        if value == True:
-            func(s)
+# ----> 1차 면접 가서 손코딩으로 다시 풀었음. 스택을 써야함.
+array = [0, 1, 1, 1, 0, 0, 1]
+# array = [1, 0, 1, 1]
+stack = []
+for i in range(len(array)):
+    if i == 0:
+        stack.append(array[i])
+    elif len(stack) > 0:
+        text = str(stack[-1]) + str(array[i])
+        if text == "01" or text == "10":
+            stack.pop()
         else:
-            return
+            stack.append(array[i])
+    else:
+        stack.append(array[i])
 
-    func(string)
+print(len(stack))
 
-    return len(string)
+
+# def solution(string):
+#     count = 0
+
+#     def func(s):
+#         nonlocal count, string
+#         value = False
+#         for i in range(len(s) - 1):
+#             if (s[i] == "0" and s[i + 1] == "1") or (s[i] == "1" and s[i + 1] == "0"):
+#                 string = s[:i] + s[i + 2 :]
+#                 count += 1
+#                 value = True
+#                 break
+
+#         if value == True:
+#             func(s)
+#         else:
+#             return
+
+#     func(string)
+
+#     return len(string)
 
 
 # def solution(s):
@@ -47,4 +66,4 @@ def solution(string):
 #     return count
 
 
-print(solution("1011"))
+# print(solution("1011"))
