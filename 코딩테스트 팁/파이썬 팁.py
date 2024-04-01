@@ -11,6 +11,17 @@
 # 조건문 포함 선언
 # array = [i for i in tmp if i not in remove_set]
 
+# 이차원 배열 잘된 예!!!!!!
+# n = 3
+# m = 4
+# arr = [[0] * m for _ in range(n)]
+
+# 이차원 배열 잘못된 예!!!!!!
+# * n 에서 얕은 복사가 된다. 이렇게 쓰면 절대 안됨 위에꺼 대로 써야함.
+# n = 3
+# m = 4
+# arr = [[0] * m] * n
+
 # list 주요함수
 # array.reverse() -> 정렬과 상관없이 현재값들을 그냥 뒤집기만 함.
 # array.count(특정값) : 특정값 갯수
