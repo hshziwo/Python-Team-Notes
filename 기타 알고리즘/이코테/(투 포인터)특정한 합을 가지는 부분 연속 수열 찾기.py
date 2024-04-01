@@ -1,3 +1,5 @@
+# 부분합을 만족하는 연속된 수열이 몇개인지 카운팅하는 문제
+
 n = 5  # 데이터의 개수 N
 m = 5  # 찾고자 하는 부분합 M
 data = [1, 2, 3, 2, 5]  # 전체 수열
@@ -17,4 +19,5 @@ for start in range(n):
         count += 1
     interval_sum -= data[start]
 
+# 부분 수열 합이 5인 수열의 갯수는?
 print(count)
