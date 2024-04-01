@@ -14,6 +14,7 @@ m = int(input())
 graph = [[INF] * (n + 1) for _ in range(n + 1)]
 
 # 자기 자신에서 자기 자신으로 가는 비용은 0으로 초기화
+# 메트릭스에서 대각선은 0인거와 같음
 for a in range(1, n + 1):
     for b in range(1, n + 1):
         if a == b:
@@ -27,6 +28,8 @@ for _ in range(m):
     graph[a][b] = c
 
 # 점화식에 따라 플로이드 워셜 알고리즘을 수행
+# k == 거쳐가는 노드, a == 시작 노드, b == 종료 노드
+# 즉 a->b가 거리가 짧냐, a->k->b가 거리가 짧냐로 테이블 업데이트
 for k in range(1, n + 1):
     for a in range(1, n + 1):
         for b in range(1, n + 1):
@@ -42,3 +45,25 @@ for a in range(1, n + 1):
         else:
             print(graph[a][b], end=" ")
     print()
+
+# input값
+# 6
+# 11
+# 1 2 2
+# 1 4 1
+# 1 3 5
+# 2 4 2
+# 2 3 3
+# 3 2 3
+# 3 6 5
+# 4 3 3
+# 4 5 1
+# 5 3 1
+# 5 6 2
+# output값
+# 0 2 3 1 2 4
+# INFINITY 0 3 2 3 5
+# INFINITY 3 0 5 6 5
+# INFINITY 5 2 0 1 3
+# INFINITY 4 1 6 0 2
+# INFINITY INFINITY INFINITY INFINITY INFINITY 0
