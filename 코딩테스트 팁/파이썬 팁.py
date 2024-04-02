@@ -29,6 +29,20 @@
 # array.insert(삽입할 위치 인덱스, 삽입할 값) -> array.insert(0, 100)
 # array.append(값)
 
+# 리스트 원소끼리 합하기
+# 두 리스트를 동시에 해서 뭘 하고 싶을때는 zip함수를 쓰면 엄청 유용하다!!
+# a=[1,2,3]
+# b=[4,5,6]
+# c= [i+j for i,j in zip(a,b)]
+# print(c) #[5, 7, 9]
+
+
+# find indexAll 에 대한 람다함수 filter 이용
+# a = [1, 2, 3, 4, 1, 1, 2]
+# print(a.index(1)) # 0
+# all_a_index = list(filter(lambda x: a[x] == 1, range(len(a))))
+# print(all_a_index) # [0, 4, 5]
+
 
 # 무한을 의미하는 값으로 10억을 설정
 # INF = int(1e9)
@@ -55,8 +69,21 @@
 # bisect : 이진 탐색
 # from bisect import bisect_left, bisect_right
 
+# 스택(선입후출)은 리스트 그냥 사용
+# stack = []
+# stack.append()
+# stack.pop()
+
 # collections : 덱(deque), 스텍, 카운터(Counter)
 # from collections import deque
+
+# 큐(선입선출)은 deque 라이브러리 사용
+# from collections import deque
+# queue = deque()
+# 오른쪽으로 들어가서 왼쪽으로 나간다고 생각해야함(선입선출)
+# queue.append()
+# queue.popleft()
+# queue.reverse() 가능
 
 # 카운터(Counter) 사용법
 # from collections import Counter
