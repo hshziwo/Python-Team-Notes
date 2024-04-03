@@ -1,3 +1,27 @@
+# 완전 제대로? 푼 거
+def solution(s):
+    count = 0
+    for char in s:
+        # 최소한 0보다 크거나 같아야 제대로 된 괄호 성립
+        # 0보다 작으면 )가 많은 거라 바로return False 시킴
+        if count < 0:
+            return False
+        
+        if char == "(":
+            count += 1
+        if char == ")":
+            count -= 1
+            
+    answer = False
+    if count == 0:
+        answer = True
+
+    return answer
+
+
+
+
+# 아래에 제대로 더 좋게 푼거 확인
 def solution(s):
     # 문자열이므로 선형시간으로만 해도 될듯
     answer = False

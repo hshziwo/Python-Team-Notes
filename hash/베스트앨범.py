@@ -1,3 +1,4 @@
+# 힙을 쓰긴 했는데 복습해서 했듯이 굳이 힙 쓸 필요없이 list로 필요할 때 sort해도 될듯하다.
 import heapq
 def solution(genres, plays):
     dic_genres = {}
