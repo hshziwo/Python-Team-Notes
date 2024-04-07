@@ -15,7 +15,8 @@ def is_prime_number(x):
     # 2, 3 같은 작은 소수라도 아예 for문을 돌지 않고 바로 True를 리턴해서
     # 소수 판별 함수가 성립한다.
 
-    # -값도 체크해야 함
+    # 1이하 값 바로 False
+    # 처리 안해주면 로직상 True됨
     if x < 2:
         return False
 

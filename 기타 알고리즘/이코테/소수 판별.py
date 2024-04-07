@@ -3,7 +3,8 @@ import math
 
 # 소수 판별 함수
 def is_prime_number(x):
-    # -값도 체크해야 함
+    # 1이하 값 바로 False
+    # 처리 안해주면 로직상 True됨
     if x < 2:
         return False
 
