@@ -6,10 +6,14 @@
 
 
 # 리스트 컴프리헨션 좋은 예
-# 이차원 배열 선언
-# array = [[0] * m for _ in range(n)] #여기서 _는 단순 반복을 위해 사용
+# 단순 일차원 배열 선언
+# visited = [False] * (n + 1)
+
 # 조건문 포함 선언
 # array = [i for i in tmp if i not in remove_set]
+
+# 이차원 배열 선언
+# array = [[0] * m for _ in range(n)] #여기서 _는 단순 반복을 위해 사용
 
 # 이차원 배열 잘된 예!!!!!!
 # n = 3
@@ -140,6 +144,11 @@
 # 전역변수를 사용하는 방법
 # 위에서 선언한 전역변수명을 지역 scope에서 global로 지정해줘야함
 # a = 0
+# def func():
+#     global a
+#     a += 1
+
+# a를 전역변수로 0으로 초기화 안하고 함수 안에서 global a로만 시작해도 전역변수처럼 a가 선언됨
 # def func():
 #     global a
 #     a += 1

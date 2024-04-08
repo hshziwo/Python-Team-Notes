@@ -25,15 +25,17 @@ def solution(n, wires):
         graph[wire[1]].append(wire[0])
 
     for edge in wires:
-        visited = [False for _ in range(n + 1)]
+        visited = [False] * (n + 1)
         # 첫번째 간선의 to노드를 미리 방문처리 시키므로써 연결이 끊어진 역할을 해줌.
         visited[edge[1]] = True
         # 왼쪽 연결수
-        a_count = dfs(visited, edge[0], graph, 0)
+        # 양방향 그래프이기 때문에 끊어진 간선의 왼쪽 노드로부터 찾아냄
+        left_count = dfs(visited, edge[0], graph, 0)
         # 오른쪽 연결수
-        b_count = dfs(visited, edge[1], graph, 0)
+        # 양방향 그래프이기 때문에 끊어진 간선의 오른쪽 노드로부터 찾아냄
+        right_count = dfs(visited, edge[1], graph, 0)
 
         # 양쪽이 제일 균등한 차
-        answer = min(answer, abs(a_count - b_count))
+        answer = min(answer, abs(left_count - right_count))
 
     return answer
