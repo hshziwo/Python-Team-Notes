@@ -16,6 +16,18 @@ def solution(word):
     return word_list.index(word) + 1
 
 
+# list 컴프리헨션으로 한줄로 푼거
+# (한줄로 푼거인데 black 때문에 여러줄 됐네...)
+def solution(word):
+    a = [
+        "".join(list(j))
+        for i in range(1, 6)
+        for j in product(["A", "E", "I", "O", "U"], repeat=i)
+    ]
+    a.sort()
+    return a.index(word) + 1
+
+
 # 딴 사람이 푼 거 중에
 # 아래와 같이 itertools의 product를 안쓰고 직접 만드는 방법도 있음
 # N이 5까지니까 가능한 문제
