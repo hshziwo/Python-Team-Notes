@@ -9,6 +9,8 @@
 # 재귀함수를 여러번 호출하면 컴퓨터 내부의 스택에 함수가 쌓이므로 스택을 이용하는 것과 같음
 
 
+# 미로탈출과 같은 상하좌우 문제는 BFS문제!!!! deque을 이용한 queue문제!!!!! 꼭 기억!!!!!
+
 # 큐(선입선출)은 deque 라이브러리 사용
 # 주로 BFS에서 queue에 bfs 순서대로 append하고 popleft로 꺼내서 사용함.
 # from collections import deque
