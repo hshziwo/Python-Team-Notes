@@ -1,4 +1,9 @@
 # triangle에 최대값을 누적시키면서 DP테이블처럼 이용해서 풀기
+# 7
+# 3 8
+# 8 1 0
+# 2 7 4 4
+# 4 5 2 6 5
 def solution(triangle):
     # 이전값을 참고하기 위해 1인덱스(2행)부터 시작
     for i in range(1, len(triangle)):
@@ -11,8 +16,9 @@ def solution(triangle):
             # center
             if j < len(triangle[prev]):
                 index_array.append(j)
-            # right는 안됨 생각 잘해야함
             # prev가 있을 수 있는 상황은 left거나 바로 위의 center의 경우밖에 없음
+            # right는 안됨 생각 잘해야함
+            # 맨위의 모양을 참고!!
             # if j + 1 < len(triangle[prev]):
             #     index_array.append(j + 1)
 
