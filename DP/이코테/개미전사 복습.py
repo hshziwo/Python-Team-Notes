@@ -5,6 +5,10 @@ input = lambda: sys.stdin.readline().rstrip()
 n = int(input())
 array = list(map(int, input().split()))
 
+# 이 문제 점화식
+# 현재의 최선값은 한칸 이전까지의 최선값 vs 두칸 이전 최선값에 현재값을 더한 값 중 큰 값
+# A(i) = max(A(i-1), A(i-2) + k)
+
 # dp테이블 초기화
 d = [0] * 100
 
